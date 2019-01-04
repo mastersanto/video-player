@@ -1,0 +1,24 @@
+type Clip {
+  id: ID!
+  name: String
+  start: Int
+  end: Int
+}
+
+type Video {
+  id: Int!
+  videoUrl: String
+  clips: [Clip]
+}
+
+type Query {
+  hello(subject: String): String
+  clip(id: ID!): Clip
+  clips: [Clip]
+  video(id: ID): Video
+}
+
+type Mutation {
+  deleteClip (id: ID!): Boolean
+  saveClip (id: ID, name: String, start: Int, end: Int): Clip
+}
