@@ -36,6 +36,7 @@ export default async (port: number): Promise<Server> => {
           '# Press Play button above to execute GraphQL query\n#\n' +
           '# You can start editing source code and see results immediately\n\n' +
           'query hello($subject:String) {\n  hello(subject: $subject)\n}\n\n' +
+          'query Clip ($id:ID!) {\n  clip(id: $id) {\n    id, name, start, end\n  }\n}\n\n' +
           'query Clips {\n  clips{id, name, start, end} \n}\n\n' +
           'mutation DeleteClip($id:ID!) {\n  deleteClip(id:$id) \n}\n\n' +
           'mutation SaveClip($id:ID, $name: String, $start: Int, $end: Int) {\n' +
@@ -43,7 +44,7 @@ export default async (port: number): Promise<Server> => {
           '    id, name, start, end\n' +
           '  }\n' +
           '}\n',
-        variables: { subject: 'World' }
+        variables: { id: '0' }
       })
     );
   }
